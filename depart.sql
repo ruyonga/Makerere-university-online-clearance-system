@@ -1,0 +1,1 @@
+INSERT INTO `clearance`.`department` (`id`, `name`, `secretcode`, `incargecode`) VALUES ((NULL, 'hospital', MD5('hospital'), MD5('1234')),(NULL,'Dean of Students', MD5('deanofstudents'), MD5('1234')),(NULL,'Faculty Dean',	MD5('facultydean'), MD5('1234')),(NULL, 'police', MD5('police'), MD5('1234'));

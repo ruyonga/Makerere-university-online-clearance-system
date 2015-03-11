@@ -18,7 +18,7 @@ if (mysqli_num_rows($result) > 0) {
     $_SESSION['username'] = $_POST['username'];
     header('Location:clearanceform.php?msg="Welcome to student '.$myusername);
 } else {
-    header('Location:index.php?msg="Wrong username or password"');
+    header('Location:signin.php?msg="Wrong username or password"');
 }
 
 

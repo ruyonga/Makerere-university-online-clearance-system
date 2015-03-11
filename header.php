@@ -14,7 +14,7 @@
   <link href="includes/cerulean.css" rel="stylesheet">
 
 
- <script src="includes/jquery.js"></script>
+  <script src="includes/jquery.js"></script>
   <script src="includes/bootstrap.js"></script>
 
 
@@ -29,13 +29,13 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
       <style type="text/css">
-      .main{
+        .main{
           margin-left: 10%;
           margin-right: 10%;
         }
-        </style>
+      </style>
     </head>
-
+    
     <body>
-     
+
      <div class="">
