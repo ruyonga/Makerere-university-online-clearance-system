@@ -151,6 +151,7 @@ if(isset($_POST['clear'])){  //listen for the form button click
 				'.$msg.' </div>';	
 			}
 		}else if($all_check[0] == "lib"){
+			//LIBRARY CHECK FOR STATUS
 			$clear = "SELECT * FROM $all_check[0] WHERE regnum = '$regnum'";
 			$act = mysqli_query($conn, $clear);
 			$cleareddate = date('y-m-d');
@@ -176,17 +177,21 @@ if(isset($_POST['clear'])){  //listen for the form button click
 				<button type="button" class="close" data-dismiss="alert">x</button>
 				'.$msg.' </div>';	
 			}
+
+			//FINANCE DEPARTMENT CHECK FOR BALANCE
 		}else if($all_check[0] == "finance"){
-			$clear = "SELECT * FROM $all_check[0] WHERE regnum = '$regnum'";
+			$clear = "SELECT * FROM finance WHERE regnum = '$regnum'";
 			$act = mysqli_query($conn, $clear);
 			$cleareddate = date('y-m-d');
+			$bal ="";
 			if (mysqli_num_rows($act) > 0) {
 				while ($row = mysqli_fetch_row($act)) {
-					if($row[2] == 'yes'){
+					$bal = $row[3];
+					if($row[3] == '0'){
 
 						$cleared_on = "INSERT INTO clearance(id,department,code,cl_date,regnum)
 						VALUES ('', '$dep','cleared','$cleareddate','$regnum')";
-	//if successful insertiion display alert dialog
+			//if successful insertiion display alert dialog
 						if ($conn->query($cleared_on) === TRUE) {
 							$msg ="You have cleared with 	".$all_check[0]." hall";
 							echo '<div class="alert alert-dismissible alert-success">
@@ -197,7 +202,7 @@ if(isset($_POST['clear'])){  //listen for the form button click
 					}
 				}
 			}else{
-				$msg = "Clearance Failed contact the person in charge";
+				$msg = "Clearance Failed,You have outstanding Balance of ".$bal;
 				echo '<div class="alert alert-dismissible alert-warning">
 				<button type="button" class="close" data-dismiss="alert">x</button>
 				'.$msg.' </div>';	
